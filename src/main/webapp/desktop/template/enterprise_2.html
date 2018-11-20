@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>谷得游戏_企业介绍</title>
+<meta name="description" content="谷得游戏企业介绍，公司简介、企业文化、发展历程和所获荣誉等。" />
+<meta name="keywords" content="谷得游戏、谷得、谷得官网、世界2、世界ol" />
+<#include "header_common.html">
+<script>
+	headtitle(2)
+	navtitle(1);
+</script>
+<style>
+	.header .menu .li3{ background: url(desktop/images/head3_b.jpg) no-repeat center;}
+</style>
+</head>
+<body>
+<#include "header.html">
+<#include "title1.html">
+	<div class="cont">
+
+			
+		<div class="tab">
+			<div class="cart_box1">
+			<#if imageList??>
+            	<#list imageList as image>
+            		<#if image.imgType=="MT" && image.state==1>
+                         <div class="item">
+                            <img src="${image.img}" alt="">
+                            <p class="p1">${image.title}</p>
+                            <p class="p2">${image.englishTitle}</p>
+                            <p class="p3"></p>
+                            <div class="p4">${image.content}</div>
+                        </div>
+                     </#if>
+                </#list>
+              </#if>
+				
+				
+				
+				
+				<div class="clear"></div>
+				<div class="share"></div>
+			</div>
+
+		</div>
+		
+	
+		
+
+	</div>
+<#include "footer.html">
+</body>
+</html>

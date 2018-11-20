@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>谷得游戏_官方网站-谷得游戏，缔造精品</title>
+<meta name="description" content="谷得游戏，是一家自研与发行为一体的游戏公司，我们拥有最特立独行的娱乐气质，游戏江湖，乐享主义，梦想打造最受玩家喜爱与世界级影响力的游戏。因心怀梦想，青春从未散场。代表作品：《世界ol》、《世界2》等。" />
+<meta name="keywords" content="谷得游戏、谷得、谷得官网" />
+<#include "header_common.html">
+<script>
+	headtitle(0);
+	$(function(){
+		$(".focus-btn li").eq(0).css("background","url(images/li1.png)");
+		var _image = "<#if advice??>${advice.image}</#if>";
+	})
+</script>
+<style>
+	.header .menu .li1{ background: url(desktop/images/head1_b.jpg) no-repeat center;}
+	.container .slider, .container li {
+	  width: 100%;
+	  min-width: 1150px;
+	  height: 540px
+	}
+	.container {
+	  width: 100%;
+	  min-width: 1150px;
+	  height: 540px;
+	  position: relative;
+	}
+	.container li { list-style: none; width:100%;}
+</style>
+</head>
+<body>
+<#include "header.html">
+    <div class="banner1">
+        <link rel="stylesheet" href="css/indbig.css" />
+        <script type="text/javascript" src="desktop/js/jquery.DB_tabMotionBanner.min.js"></script>
+
+        <div class="DB_tab25">
+        <ul class="DB_bgSet">
+        <#list cardArray as Array>
+        <#if Array.cardType==0 >
+            <li style="background:url(${Array.img}) no-repeat center top;">
+
+                  <a target="_blank" style=" display: block; border: 0px solid red; width: 100%; height:100%;" title="${Array.title}" href="${Array.url}">
+                        <div class="but"><img alt="${Array.title}"  src="desktop/images/go.png" alt=""></div>
+                  </a>
+            </li>
+        </#if>
+        </#list>
+        </ul>
+
+        <ul class="DB_imgSet">
+        <#list cardArray as Array>
+        <#if Array.cardType==0>
+                 <li></li>
+
+        </#if>
+        </#list>
+
+        </ul>
+
+        <div class="DB_menuWrap">
+            <ul class="DB_menuSet">
+                <#list cardArray as Array>
+                    <#if Array.cardType==0>
+                            <li><img src="desktop/images/btn_off.png" alt=""></li>
+                    </#if>
+                </#list>
+            </ul>
+            <div class="DB_next"><img src="desktop/images/nextArrow.png" alt="NEXT"></div>
+            <div class="DB_prev"><img src="desktop/images/prevArrow.png" alt="PREV"></div>
+        </div>
+
+        </div>
+        <script type="text/javascript">
+        $('.DB_tab25').DB_tabMotionBanner({
+            key:'b28551',
+            autoRollingTime:10000,                            
+            bgSpeed:500,
+            motion:{
+                DB_1_1:{left:-50,opacity:0,speed:1000,delay:500},
+                DB_1_2:{left:-50,opacity:0,speed:1000,delay:1000},
+                DB_1_3:{left:100,opacity:0,speed:1000,delay:1500},
+                DB_2_1:{top:50,opacity:0,speed:1000,delay:500},
+                DB_2_2:{top:50,opacity:0,speed:1000,delay:1000},
+                DB_2_3:{top:100,opacity:0,speed:1000,delay:1500},
+                DB_3_1:{left:-50,opacity:0,speed:1000,delay:500},
+                DB_3_2:{top:50,opacity:0,speed:1000,delay:1000},
+                DB_3_3:{top:0,opacity:0,speed:1000,delay:1500},
+                DB_4_1:{top:50,opacity:0,speed:1000,delay:500},
+                DB_4_2:{top:0,opacity:0,speed:1000,delay:1000},
+                DB_4_3:{top:0,opacity:0,speed:1000,delay:1500},
+                DB_4_4:{top:30,opacity:0,speed:1000,delay:2000},
+                DB_4_5:{top:100,opacity:0,speed:1000,delay:3000},
+                end:null
+            }
+        })
+        </script>
+    </div>
+	<div class="cont" style="height:auto">
+		
+<div class="ind_left">
+
+	<div id="banner-focus" class="banner focus-box">
+		<ul class="focus-bd clearfix" style="width: 658px; left: 0px; ">
+			<#if cardArray??>
+				<#list cardArray as Array>
+					<#if Array.cardType==1>
+						<li style="display: inline-block; position: relative;">
+							<a target="_blank" title="${Array.title}" href="${Array.url}"><img alt="${Array.title}" src="${Array.img}"></a>
+							<div style=" position:absolute; left:20px; bottom:10px; font-size:16px; color:#ffffff; z-index:99">${Array.title}</div>
+						</li>
+					</#if>
+				</#list>
+			</#if>
+		</ul>
+		<ol class="focus-btn clearfix">
+			<#if cardArray??>
+				<#list cardArray as Array>
+					<#if Array.cardType==1>
+						<li class=""></li>
+					</#if>
+				</#list>
+			</#if>
+		</ol>
+	</div>
+
+
+</div>
+		<div class="ind_right">
+			<div class="ind_right_title">
+				<span class="span1"><img src="desktop/images/news.png" alt=""></span>
+				<span class="span2"><a href="pc_news.html">更多+</a></span>
+			</div>
+			<div class="news">
+				<ul class="con_li">
+                 <#if newsArray??>
+                 <#list newsArray as news>
+                    <li style="color: #CCC">
+                            <a href="pc_newsDetail.html?id=${news.id}">
+                            <#list newsCategory as cate>
+                               
+                                <#if cate.id == news.categoryId>
+                                    <span class="span1">【${cate.cateName}】</span>
+                                </#if>
+                            </#list>
+                            <span class="span2">${news.title}</span>
+                            <span class="span3">${news.createTime?string("yyyy-MM-dd")}</span>
+                            </a>
+                    </li>
+                    <#if (news_index) == 5> 
+                        <#break> 
+                    </#if>
+                </#list>
+                </#if>
+                
+                    
+        </ul>
+
+			</div>
+
+		</div>
+		<div class="clear"></div>
+        <div>
+	        <div style=" width:1166px; height:auto; overflow: hidden;">
+				<div class="ind_item">
+					
+					<p class="p_title">
+						<span class="span1"><img src="desktop/images/hotgame.png" alt=""></span>
+						<span class="span2"><a href="pc_game.html">更多+</a></span>
+					</p>
+                    <#if gameArray??>
+                        <#assign hotLength=0/>
+                        <#list gameArray as Array>
+                            <#if Array.hot==1 && Array.state == 1>
+                                <div class="inditem">
+                                    <div class="ind_box">
+                                        <img class="img" src="${Array.img}" alt="" width="100%">
+                                        <p class="ind_title">${Array.gameName}</p>
+                                        <p class="ind_text">${Array.description}</p>
+                                        <div>
+                                            <span class="ico">
+                                                         <#if Array.platform!="">
+                                                            <#list Array.platform?split(",") as icon>
+                                                                <img src="desktop/images/${icon}.png" />
+                                                            </#list>
+                                                            <#else>
+                                                          </#if>
+                                                        </span>
+                                            <span class="down"><a href="<#if Array.downloadUrl??>${Array.downloadUrl}<#else>javascript:unopen();</#if>" target="_blank"><img src="desktop/images/down.png" alt=""></a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <#assign hotLength=hotLength+1 />
+                                <#if hotLength==3>
+                                    <#break>
+                                </#if>
+                            </#if>
+                        </#list>
+                    </#if>
+		             <div class="clear"></div>
+		            
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="fuwu">
+		<div class="box">
+		<p class="p_title"><img src="desktop/images/fuw.png" alt=""></p>
+		<div class="item">
+			<div class="div1"><img src="desktop/images/img7.png" alt=""></div>
+			<div class="div2">
+				<a style="color:#c0c0c0; text-decoration: none;" href="javascript:unopen()">
+				<p class="p1"><img src="desktop/images/t1.png" alt=""></p>
+				<p>谷得通行证</p>
+				</a>
+			</div>
+		</div>
+		<div class="item">
+			<div class="div1"><img src="desktop/images/img8.png" alt=""></div>
+			<div class="div2">
+				<a style="color:#c0c0c0; text-decoration: none;" href="javascript:unopen()">
+				<p class="p1"><img src="desktop/images/t2.png" alt=""></p>
+				<p style="width:140px;">找回账号 / 修改密码</p>
+				</a>
+			</div>
+		</div>
+		<div class="item">
+			<div class="div1"><img src="desktop/images/img9.png" alt=""></div>
+			<div class="div2">
+				<a style="color:#c0c0c0; text-decoration: none;" href="javascript:;" class="customer-server">
+				<p class="p1"><img src="desktop/images/t3.png" alt=""></p>
+				<p>游戏自助答疑</p>
+				</a>
+			</div>
+		</div>
+		<div class="item">
+			<div class="div1"><img src="desktop/images/img10.png" alt=""></div>
+			<div class="div2">
+				<a style="color:#c0c0c0; text-decoration: none;" href="javascript:unopen()">
+				<p class="p1"><img src="desktop/images/t4.png" alt=""></p>
+				<p>玩家交流中心</p>
+				</a>
+			</div>
+		</div>
+		<div class="item">
+			<div class="div1"><img src="desktop/images/img11.png" alt=""></div>
+			<div class="div2">
+				<a style="color:#c0c0c0; text-decoration: none;" href="javascript:unopen()">
+				<!-- <a style="color:#c0c0c0; text-decoration: none;" target="_blank" href="https://good321.tmall.com/"> -->
+				<p class="p1"><img src="desktop/images/t5.png" alt=""></p>
+				<p>热门游戏周边</p>
+				</a>
+			</div>
+		</div>
+		</div>
+
+	</div>
+<#include "footer1.html">
+<script src="desktop/js/slider.js"></script>
+</body>
+</html>

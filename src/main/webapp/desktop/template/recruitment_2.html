@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>谷得游戏_人才招聘</title>
+<meta name="description" content="谷得游戏人才招聘，加入谷得大家庭，我们将竭诚为所有员工提供具有行业竞争力的薪酬以及健全的员工福利体系。" />
+<meta name="keywords" content="谷得游戏、谷得、谷得官网" />
+<#include "header_common.html">
+<script>
+	headtitle(4);
+	navtitle(1);
+</script>
+<style>
+	.header .menu .li5{ background: url(desktop/images/head5_b.jpg) no-repeat center;}
+</style>
+</head>
+<body>
+<#include "header.html">
+<#include "title2.html">
+
+	<div class="cont" style="width:1153px">
+		
+		
+		
+		<div class="tab" style="width:1170px; ">
+			<div class="item_2">
+				<p>走进谷得 <span>Environment</span></p>
+				<div class="qx_list" id="imgli" style="height:800px;">
+				    <ul>
+                    	<#if imageList??>
+                      	<#list imageList as image>
+                      		<#if image.imgType=="WC" && image.state==1>
+                                <li class="box">
+                                   <div class="qx_picBox"><img src="${image.img}" /></div>
+                                   <div class="qx_txt">${image.title}</div>
+                                </li>
+                             </#if>
+                        </#list>
+				     	</#if>
+				     
+				    </ul>
+				    <div class="clear"></div>
+				  </div>
+			</div>
+
+		</div>
+		
+		
+
+	</div>
+	</div>
+<#include "footer.html">
+  <script type="text/javascript" src="desktop/js/jquery.masonry.min.js"></script> 
+  <script type="text/javascript">
+
+$(document).ready(function(){
+	var $container = $('#imgli');
+	$container.imagesLoaded(function(){
+		$container.masonry({
+			itemSelector: '.box',
+			//columnWidth: 12 //每两列之间的间隙为5像素
+		});
+	});
+});
+</script> 
+</body>
+</html>

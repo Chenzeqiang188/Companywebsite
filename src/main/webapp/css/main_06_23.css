@@ -1,0 +1,69 @@
+
+.c{*zoom:1}
+.c:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.l{float:left;}
+.r{float:right;}
+.tac {text-align:center;}
+.pr{position:relative; z-index: 999}
+
+
+
+
+/*events 20150703*/
+.event_tab{width:1200px;height:180px;}
+.event_tab li{float:left;}
+.event_tab li a{display:block;height:180px;background:url(../images/main_06_23/events.jpg) no-repeat}
+.event_tab .events_con{width:605px;background-position:left -180px;}
+.event_tab .cp_times{width:595px;background-position:-605px -180px;}
+
+.event_tab .events_con:hover{background-position:left 0;}
+.event_tab .cp_times:hover{background-position:-605px 0;}
+
+.event_tab .events_active .events_con{background-position:left 0;}
+.event_tab .events_active .cp_times{background-position:-605px 0;}
+
+/*改后events*/
+.eventonebox{width:1200px;height:172px;overflow:hidden;}
+.eventonebox div,.eventtwobox div,.eventthreebox div,.eventfourbox div,.eventfivebox div,.eventsixbox div,.eventsevenbox div,.eventeightbox div,.eventninebox div,.eventtenbox div,.eventelevnbox div,.eventtwlbox div{position:absolute;}
+.eventup{top:/*0px*/355px;}
+.eventdown{top:/*0px*/355px;}
+.event_one{width:377px;height:55px;left:160px;}
+.event_one_1{width:252px;height:100px;right:284px;}
+.eventtwobox{width:1200px;height:233px;overflow:hidden;}
+.event_two{width:257px;height:163px;left:282px;}
+.event_two_2{width:275px;height:43px;right:267px;}
+.eventthreebox{width:1200px;height:232px;overflow:hidden;}
+.event_three{width:269px;height:47px;left:272px;}
+.event_three_3{width:261px;height:164px;right:280px;}
+.eventfourbox{width:1200px;height:221px;overflow:hidden;}
+.event_four{width:259px;height:165px;left:282px;}
+.event_four_4{width:299px;height:46px;right:241px;}
+.eventfivebox{height:210px;overflow:hidden;}
+.event_five{width:362px;height:54px;left:176px;}
+.event_five_5{width:354px;height:193px;right:199px;}
+.eventsixbox{height:164px;overflow:hidden;}
+.event_six{width:296px;height:111px;left:260px;}
+.event_six_6{width:339px;height:71px;right:204px;}
+.eventsevenbox{height:335px;overflow:hidden;}
+.event_seven{width:322px;height:50px;left:224px;}
+.event_seven_7{width:391px;height:273px;right:146px;}
+.eventeightbox{height:171px;overflow:hidden;}
+.event_eight{width:539px;height:102px;left:0;}
+.event_eight_8{width:341px;height:47px;right:205px;}
+.eventninebox{height:355px;overflow:hidden;}
+.event_nine{width:310px;height:46px;left:140px;}
+.event_nine_9{width:323px;height:289px;right:176px;}
+.eventtenbox{height:169px;overflow:hidden;}
+.event_ten{width:402px;height:102px;left:140px;}
+.event_ten_10{width:366px;height:50px;right:176px;}
+.eventelevnbox{height:247px;overflow:hidden;}
+.event_elevn{width:246px;height:46px;left:294px;}
+.event_elevn_11{width:349px;height:185px;right:199px; }
+.eventtwlbox{height:60px; width: 150px;  border: 0px solid red}
+.event_twl{width:550px;height:100px;margin-left:-10px; background:url(../images/li-h.jpg) 0px 7px  no-repeat; border:0px solid red; padding-left:40px; line-height:28px; color:#666}
+.event_twl:hover{ background:url(../images/li-r.jpg) 0px 7px  no-repeat; }
+.event_twl_12{width:238px;height:46px;right:301px;}
+
+
+
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html ng-app="Myapp">
+<head>
+<meta charset="UTF-8">
+<title>谷得游戏_人才招聘</title>
+<meta name="description" content="谷得游戏人才招聘，加入谷得大家庭，我们将竭诚为所有员工提供具有行业竞争力的薪酬以及健全的员工福利体系。" />
+<meta name="keywords" content="谷得游戏、谷得、谷得官网" />
+<#include "header_common.html">
+<script>
+	headtitle(4);
+	navtitle(0);
+	$(function(){
+		$(".bottom").click(function(){
+			$(".textbox").css("display","none")
+			$(".datatable").css("display","block")
+		})
+	})
+</script>
+</head>
+<body>
+<#include "header.html">
+<#include "title2.html">
+
+	<div class="cont" style="width:1153px">
+		<div class="tab" style="width:1170px">
+			<div class="item_1">
+				<div class="item_1_l">
+					<div class="top">
+					<form id="form1" action="pc_recruit.html" method="get">
+						<input type="text" name="positionName" value="">
+						<input type="button" onclick="document.forms.form1.submit()">
+						<!-- <input type="hidden" name="positionType" value=""> -->
+					</form>
+					</div>
+					<div class="bottom">
+						<div>
+							<ul>
+							<div class="div1"><img src="desktop/images/zp.png" alt=""></div>
+							    <li><a href="pc_recruit.html?type=${(recruit.type)!0}">全部</a></li>
+								<#if positionTypeList??>
+								<#list positionTypeList as pt>
+								<#if pt.typeValue==2>
+								<li><a href="pc_recruit?positionType=${pt.id}&type=${(recruit.type)!0}">${pt.typeName}</a></li>
+								</#if>
+								</#list>
+								</#if>
+								<div class="clear"></div>
+							</ul>
+							<div class="div2"><img src="desktop/images/zp.png" alt=""></div>
+							<div class="div3">
+								<p>招聘邮箱：</p>
+								<p style="margin-top:4px;margin-bottom:12px">hr@good321.net </p>
+								<p>联系人：</p>
+								<p>黄女士（市场、产品、策划类）</p>
+								<p style="margin-bottom:12px">QQ：2414508742</p>
+								<p>联系人：</p>
+								<p>黄女士（技术、美术、运营类）</p>
+								<p>QQ：2655122938</p>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<div class="item_1_r">
+					<div class="textbox">
+						<#if recruit??>
+						<div class="title">${recruit.position}</div>
+						<div>
+							<ul>
+
+							
+								<li>岗位类别：<span style="color:#999"><#if recruit.positionType1??><#list positionTypeList as typelist><#if typelist.id==recruit.positionType1>${typelist.typeName}</#if></#list></#if></span></li>
+								<li>用人部门：<span style="color:#999"><#if recruit.deptId??><#list deptList as deptList><#if deptList.id==recruit.deptId>${deptList.deptName}</#if></#list></#if></span></li>
+								<li>招聘人数：<span style="color:#999">${recruit.recruitNum}</span></li>
+
+
+
+
+							
+								<div class="clear"></div>
+							</ul>
+						</div>
+						<p style="font-size:16 px; color:#ec5559; font-weight:bold; margin-top:10px; margin-bottom:10px;">工作职责：</p>
+						<div class="text" style="color:#919191">${recruit.duty}</div>
+						<p style="font-size:16 px; color:#ec5559; font-weight:bold; margin-top:10px; margin-bottom:10px;">任职要求：</p>
+						<div class="text" style="color:#919191">${recruit.required}</div>
+						</#if>
+						<p style=" margin-top:100px"><span style="font-size:16 px; color:#424242;">有意者或将简历发送至：</span><span style="font-size:16 px; color:#e72d33"><a style="color:#e72d33" href="">hr@good321.net</a> </span></p>
+				</div>
+				</div>
+				<div class="clear"></div>
+
+			</div>
+
+		</div>
+	</div>
+	</div>
+	<#include "footer.html">
+
+</body>
+<script>
+	$(document).ready(function() {
+		var type = ${(recruit.type)!0}
+		
+		if (type === 1) {
+			var $a = $('.title ul li:first').children('a')
+			var href = $a.attr('href')
+			$a.attr('href', href + '?type=1')
+		}
+	})
+</script>
+</html>

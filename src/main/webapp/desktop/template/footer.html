@@ -1,0 +1,68 @@
+<div class="gamelist_main">
+    <div class="gamelist">
+    		
+    		<div class="div1"><img src="desktop/images/ewm.jpg" alt=""></div>
+    		<div class="div2">
+    			<p class="p1"><img src="desktop/images/textimg.png" alt=""></p>
+    			<p class="p2">搜索“谷得游戏”关注官方微信（gudegames）立即获取。<br/> 所有热门精品游戏，一个微信号全搞定！</p>
+    		
+    		</div>
+    		<div class="div3">
+            <#if footimagelist??>
+            <#list footimagelist as image>
+        	<#if image.imgType=="bar" && image.state==1>
+                <div class="item">
+                    <img src="${image.img}" alt="">
+                    <p>${image.title}</p>
+                </div>
+                <#if (image_index + 1) == 4> 
+                    <#break> 
+                </#if>
+            </#if>
+            </#list>
+            </#if>
+    		</div>
+	</div>
+</div>
+<div class="footer" style="height: 240px;">
+    <div class="box">
+        <div class="logo1"><img src="desktop/images/logo.png" alt="" width="135"></div>
+        <!--<div class="logo2"><img src="desktop/images/logo2.png" alt="" width="45"></div>-->
+        <div class="text">
+            <div>
+                <a href="pc_ci.html">关于谷得</a> |
+                <a href="pc_cooperation.html">联系我们</a> |
+                <a href="Sitemap.xml" target="_blank">网站地图</a> |
+                <a href="pc_newsDetail.html?id=71">法律声明</a> |
+                <a href="privacy.html" target="_blank">隐私政策</a> |
+                <a href="parent1.html" target="_blank">家长监护</a>
+            </div>
+            <div>@GOOD MEDIA LIMITED <a style=" text-decoration: underline;" href="http://www.good321.net/icp.jpg">粤B2-20120263 粤ICP备13064199号-1</a> <span style=" text-decoration: underline;">公安备44010602005169</span></div>
+            <!--<p style="text-align:right;">网络出版服务许可证<a style=" text-decoration: underline;" href="icpNetwork.jpg" target="_blank">（总）网出证（粤）字第001号</a></p>
+            <p style="text-align:right;text-decoration: underline;"><a href="cultureNetwork.jpg" target="_blank">粤网文[2014]0873-373号</a></p>-->
+            <p >
+            网络出版服务许可证<a style="text-decoration: underline;" href="icpNetwork.jpg" target="_blank">（总）网出证（粤）字第001号</a> &nbsp;&nbsp;
+            </p>
+            <p>
+                网络文化经营许可证&nbsp;&nbsp;<a style="text-decoration: underline;" href="cultureNetwork.jpg" target="_blank">粤网文[2017]10375-2638号</a>
+            </p>
+            <p>抵制不良游戏，拒绝盗版游戏。 注意自我保护，谨防受骗上当。 适度游戏益脑，沉迷游戏伤身。 合理安排时间，享受健康生活。</p>
+        </div>
+        <div class="xx">
+            <div><img src="desktop/images/tel.png" alt="">客服热线：020-85623474</div>
+            <div><img src="desktop/images/email.png" alt="">客服邮箱：kefu@good321.net</div>
+
+        </div>
+    </div>
+</div>
+<a href="#top" id="toTop"></a>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?9ed2285df9e3eed7b06c13dbb3422649";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script src="https://qiyukf.com/script/78f4110eac39c99f909c687260013544.js"></script>

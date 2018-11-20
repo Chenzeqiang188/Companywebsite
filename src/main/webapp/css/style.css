@@ -1,0 +1,10 @@
+﻿/*.qx_t1 { background:#EBEBEB; margin: 0px auto 15px; height: 32px; width: 593px; padding-left: 365px; font: 24px/28px "微软雅黑"; color: #333; }*/
+.qx_list{width:1190px; height: auto; overflow:hidden; margin:0 auto;}
+.qx_list ul li { background: #FFF; border: 1px solid #E5E5E5; float: left; width: 372px; margin-right:15px; margin-bottom:15px; text-align:center; list-style:none; overflow:hidden }
+.qx_list ul li img{ width:350px; margin-top:20px;}
+/*.qx_picBox { border: 1px solid #E9E9E9; height: auto; width: 210px; margin-bottom: 8px; }*/
+.qx_txt { font-size: 14px; text-align: center; margin: 0px auto; width: 340px; height: 36px; text-align:center; line-height:36px; overflow: hidden; }
+.qx_txt p{margin-bottom: 8px; padding-left: 13px;}
+
+.qx_list ul { width: 1190px; }
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>谷得游戏_企业介绍</title>
+<meta name="description" content="谷得游戏企业介绍，公司简介、企业文化、发展历程和所获荣誉等。" />
+<meta name="keywords" content="谷得游戏、谷得、谷得官网、世界2、世界ol" />
+<#include "header_common.html">
+<script>
+	headtitle(2)
+	navtitle(3);
+</script>
+<style>
+	.header .menu .li3{ background: url(desktop/images/head3_b.jpg) no-repeat center;}
+</style>
+</head>
+<body>
+<#include "header.html">
+<#include "title1.html">
+	<div class="cont">
+		<div class="tab">
+
+			<table class="cart_box4" border="1">
+			<tr class="title">
+				<td width="137">时间<div></div></td>
+				<td width="228">获奖产品/单位<div></div></td>
+				<td width="400">颁发单位<div></div></td>
+				<td>奖项名称<div style="border:0px"></div></td>
+			</tr>
+			</table>
+            <#if honorArray??>
+            <#list honorArray as Array>
+            <table class="cart_box4 .datatable">
+			<#list Array.data as recruit>
+				
+				<tr  style="border: 1px solid #d1d1d1">
+                    <td width="137">${recruit.year?c}年</td>
+                    <td width="228">${recruit.winner}</td>
+                    <td width="400">${recruit.awardUnit}</td>
+                    <td>${recruit.honor}</td>
+                </tr>
+                
+                </#list>
+                </table>
+				<div style="height:60px;"></div>      
+            </#list>
+			</#if>
+		
+		<div style=" width: 1200px; height: 20px; margin-top: -10px; background: #f4f4f4;"></div>
+		</div>
+	</div>
+<#include "footer.html">
+</body>
+</html>

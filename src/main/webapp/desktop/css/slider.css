@@ -1,0 +1,19 @@
+img { border:none;}
+.focus-box { width:658px; height:320px; position:relative;}
+.focus-box .focus-btn,.focus-box .focus-bd { position:absolute;}
+.focus-box .focus-btn { bottom:10px; right:20px;}
+.focus-box .focus-btn li { float:left; width:18px; display:inline; height:18px; padding:0; border:0 none; background:#000; line-height:18px; text-align:center; font-weight:bold; color:#999; margin-right:5px; cursor:pointer;}
+.focus-box .focus-btn li.on { color:#fff;}
+.focus-box .focus-bd { top:0; left:0;}
+.focus-box .focus-bd li {float:left;display:inline; overflow:hidden; width: 658px; height:320px;}
+.focus-box .focus-bd a,.focus-box .focus-bd img { display:block;}
+
+/*clearfix { zoom:1;}
+clearfix:after { content:'\20'; clear:both; display:block;}*/
+.focus-box { position: relative; width:658px; height:320px; float:left; z-index:100; overflow:hidden;}
+.domain_name dt label{ _display:inline; _zoom:1; *width:140px;}
+.special_offers { margin-left:20px; color:#C33;}
+.focus-box .focus-btn { bottom:28px; right:25px;}
+.focus-box .focus-btn li { float:left; width:11px; display:inline; height:11px; padding:0; border:0 none; background:url(../images/li2.png) no-repeat; margin-right:10px; cursor:pointer; overflow:hidden;}
+.focus-box .focus-btn li.on {  background:url(../images/li1.png) no-repeat;}
+.focus-bd li img { width:658px; height:320px;}

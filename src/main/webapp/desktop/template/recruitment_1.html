@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html ng-app="Myapp">
+<head>
+<meta charset="UTF-8">
+<title>谷得游戏_人才招聘</title>
+<meta name="description" content="谷得游戏人才招聘，加入谷得大家庭，我们将竭诚为所有员工提供具有行业竞争力的薪酬以及健全的员工福利体系。" />
+<meta name="keywords" content="谷得游戏、谷得、谷得官网" />
+<#include "header_common.html">
+<script type="text/javascript" src="desktop/js/angular.min.js"></script> 
+<script type="text/javascript" src="desktop/js/jquery.masonry.min.js"></script>
+<script>
+	headtitle(4);
+	navtitle(0);
+</script>
+<style>
+	.header .menu .li5{ background: url(desktop/images/head5_b.jpg) no-repeat center;}
+    .cont .tab .item_1 .item_1_l .bottom ul li.choosed{background-color: #f5f5f5;}
+</style>
+</head>
+<body ng-controller="data">
+<#include "header.html">
+<#include "title2.html">
+
+	<div class="cont" style="width:1150px">
+
+		<div class="tab">
+			<div class="item_1">
+				<div class="item_1_l">
+					<div class="top">
+					<form id="form1" >
+						<input type="text" name="positionName"  ng-model="search">
+<!--						<input type="button" ng-click="searchText()">-->
+						<input type="button" >
+					</form>
+					</div>
+					<div class="bottom">
+						<div>
+							<ul>
+							<div class="div1"><img src="desktop/images/zp.png" alt=""></div>
+								<li  ng-click="changeptsearch('')" ng-class="{'choosed':ptsearch==''}"><a href="javascript:;" >全部</a></li>
+								<li ng-repeat="pt in positionTypeList"  ng-click="changeptsearch(pt.id)" ng-class="{'choosed':pt.id==ptsearch}" ng-show="pt.typeValue==2"><a href="javascript:;" ng-bind="pt.name"></a></li>
+								<div class="clear"></div>
+							</ul>
+							<div class="div2"><img src="desktop/images/zp.png" alt=""></div>
+							<div class="div3">
+								<p>招聘邮箱：</p>
+								<p style="margin-top:4px;margin-bottom:12px">hr@good321.net </p>
+								<p>联系人：</p>
+								<p>黄女士（市场、产品、策划类）</p>
+								<p style="margin-bottom:12px">QQ：2414508742</p>
+								<p>联系人：</p>
+								<p>黄女士（技术、美术、运营类）</p>
+								<p>QQ：2655122938</p>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<div class="item_1_r">
+					<table class="item_3_table" border="1">
+						<thead>
+							<tr class="title">
+								<td>职位名称<div></div></td>
+								<td>职位类别<div></div></td>
+								<td>用人部门<div></div></td>
+								<td>招聘人数<div style="border:0px"></div></td>
+							</tr>
+						</thead>
+						<tbody>
+								<tr  class="bbbbbbb b_1" width="100%" ng-repeat="obj in obj | ptFilter : ptsearch | filter : search | pageStartFrom: curPage * pageSize | limitTo: pageSize">
+									<td><a href="pc_recruitDetail.html?type={{obj.type}}&id={{obj.id}}" ng-bind="obj.position"></a></td>
+									<td><a href="pc_recruitDetail.html?type={{obj.type}}&id={{obj.id}}" ng-bind="positionTypeObj[obj.positionType1]"></a></td>
+									<td><a href="pc_recruitDetail.html?type={{obj.type}}&id={{obj.id}}" ng-bind="deptObj[obj.deptId]"></a></td>
+									<td><a href="pc_recruitDetail.html?type={{obj.type}}&id={{obj.id}}" ng-bind="obj.recruitNum"></a></td>
+								</tr>
+						</tbody>
+					</table>
+					<div class="page">
+                    <div class="page">
+						<ul>
+							
+							<input type="button" ng-click="curPage = curPage - 1" ng-disabled="curPage <= 0" value="<" style="background:#bcbcbc; color:#fff"></input>
+			
+
+							<button type="button" class="pagess" ng-class="{red:curPage==p}" ng-repeat="p in arr" ng-bind="p+1" ng-click="page(p)" ></button>
+
+
+							<input  type="button"ng-click="curPage = curPage + 1" ng-disabled="curPage >= pageCount" value=">" style="background:#bcbcbc; color:#fff; margin-left:-3px;"></input>
+							
+
+						</ul>
+					</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+
+			</div>
+	
+		</div>
+
+	</div>
+	</div>
+	<#include "footer.html">
+  <script type="text/javascript">	
+  	if(typeof Array.prototype.filter !== "function"){
+		  Array.prototype.filter = function (fn, context) {
+			  var arr = [];
+			  if (typeof fn === "function") {
+				  for (var k = 0; k < this.length; k++) {
+					  fn.call(context, this[k], k, this) && arr.push(this[k]);
+				  }
+			  }
+			  return arr;
+		  }
+	}
+	var pagenum="";
+	var app=angular.module('Myapp', []);
+		app.filter('pageStartFrom',function() {
+		  return function(input, start) {
+		    start = +start;
+		    pagenum=input.length;
+		    return input.slice(start);
+		    return pagenum;
+		  }
+		}).filter('searchFilter', [function() {
+          return function(input,id) {
+            var arr=[];
+            for(var i in input)
+            {
+                if(input[i].id==id)
+                    arr.push(input[i])
+            }
+            return arr;
+          }
+        }]).filter('ptFilter', [function() {
+          return function(input,id) {
+            if(!id) return input;
+            if(id == 0) return input;
+            var arr=[];
+            for(var i in input)
+            {
+                if(input[i].positionType2==id)
+                    arr.push(input[i])
+            }
+            return arr;
+          }
+        }]);
+
+		app.controller('data', function($scope){
+            $scope.deptList=[                
+                <#list deptList as deptList>{id:"${deptList.id}","name":"${deptList.deptName}"},</#list>
+            ];
+            $scope.deptObj={
+                <#list deptList as deptList>"${deptList.id}":"${deptList.deptName}",</#list>
+            };
+            $scope.positionTypeList=[                
+                <#list positionTypeList as positionTypeList>{id:"${positionTypeList.id}","name":"${positionTypeList.typeName}",typeValue:"${positionTypeList.typeValue!}"},</#list>
+            ];
+            $scope.positionTypeObj={
+                <#list positionTypeList as positionTypeList>"${positionTypeList.id}":"${positionTypeList.typeName}",</#list>
+			};
+			
+			var match = window.location.search.match(/type=(\d)/) || []
+			var type = +(match[1] || 0)
+			
+			if (type === 1) {
+				var $a = $('.title ul li:first').children('a')
+				var href = $a.attr('href')
+				$a.attr('href', href + '?type=1')
+			}
+
+			var originObjList = [
+				<#list recruitList as recruit>
+					{
+						id:"${recruit.id}",
+						position:"${recruit.position}",
+						positionType1:"<#if recruit.positionType1??>${recruit.positionType1}<#else></#if>",
+						positionType2:"<#if recruit.positionType1??>${recruit.positionType2}<#else></#if>",
+						deptId:"<#if recruit.deptId??>${recruit.deptId}<#else></#if>",
+						recruitNum:"${recruit.recruitNum}",
+						type: ${recruit.type}
+					},
+				</#list>
+			]
+
+			$scope.obj = originObjList.filter(function(item) {
+				return item.type === type
+			})
+            $scope.searchText=function(){
+                var t=$scope.searchVal;
+                $scope.search=t;
+            }
+            $scope.ptsearch="${(positionType!)?html}";
+            $scope.search="${(positionName!)?html}";
+            $scope.searchVal="";
+			$scope.pageSize = 18;
+			$scope.curPage = 0;
+			$scope.pageCount = $scope.obj.length === 0 ? 0 : Math.ceil($scope.obj.length / $scope.pageSize) -1;
+			$scope.Items=$scope.obj;
+			$scope.arr=[];
+
+			for(var i=0; i<$scope.pageCount+1; i++){
+				$scope.arr.push(i)
+
+			}
+
+			$scope.page=function(d){
+				//alert(d)
+				$scope.curPage = d;
+			}
+			$scope.changeptsearch = function(id){
+                if($scope.ptsearch==id)
+                $scope.ptsearch="";
+                else
+                $scope.ptsearch=id;
+            }
+		})
+</script> 
+</body>
+</html>

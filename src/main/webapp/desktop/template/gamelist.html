@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>谷得游戏_旗下游戏</title>
+<meta name="description" content="谷得游戏旗下游戏覆盖角色扮演、动作、策略等多种游戏类型，深受海内外玩家与市场欢迎，其中包括《世界OL》、《世界2》等游戏。" />
+<meta name="keywords" content="谷得游戏、谷得、谷得官网、世界2官方、世界2官方下载、世界OL官方、世界2官方下载" />
+<#include "header_common.html">
+<script>
+	headtitle(1);
+</script>
+<style>
+	.header .menu .li2{ background: url(desktop/images/head2_b.jpg) no-repeat center;}
+</style>
+</head>
+<body>
+<#include "header.html">
+	<div class="banner2"></div>
+	<div class="cont" style="width:1153px">
+		
+         <#if gameArray??>
+         <#list gameArray as Array>
+         <#if Array.hot==0>
+            <div class="game" style=" margin:0px; border:0px solid red;">
+                <div class="game_item" style=" *margin:20px; ">
+                   
+                
+                 <div class="left"><img class="img1" src="${Array.img}" alt=""></div>
+                    <div class="central" style="padding-bottom:0px">
+                        <div class="p1">${Array.gameName}</div>
+                        <div class="p2">${Array.description}</div>
+                        <div class="p3">
+                            <div class="web"><a href="<#if Array.host??>${Array.host}<#else></#if>" target="_blank"><img class="gimg" src="desktop/images/gameweb.jpg" alt=""></a></div>
+                           
+                            <div class="down"><a href="<#if Array.downloadUrl??>${Array.downloadUrl}<#else>javascript:unopen();</#if>" target="_blank"><img  class="gimg"src="desktop/images/gamedown.jpg" alt=""></a></div>
+
+
+    
+                        </div>
+                    </div>
+                    <#if Array.qrCodeImg!="">
+                    <div class="right"><img src="${Array.qrCodeImg}" alt=""><br>扫描二维码直接下载游戏</div>
+                    </#if>
+                
+            </div>
+            </div>
+            </#if>
+        </#list>
+        </#if>
+
+		
+
+	</div>
+	
+	</div>
+<#include "footer.html">
+</body>
+</html>

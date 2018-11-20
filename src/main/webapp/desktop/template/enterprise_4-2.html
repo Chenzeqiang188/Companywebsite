@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<#include "header_common.html">
+<script>
+	headtitle(2)
+	navtitle(2);
+</script>
+<style>
+	.header .menu .li3{ background: url(desktop/images/head3_b.jpg) no-repeat center;}
+</style>
+</head>
+<body>
+<#include "header.html">
+<#include "title1.html">
+	<div class="cont">
+
+
+		
+		<div class="tab">
+			<div class="cart_box3">
+				<div class="hrs"></div>
+				<div class="name">发展历程<br><span>Development history</span></div>
+				<div class="ot_contaions">
+
+
+				    <div class="event_bk">
+				    	
+				       
+                        
+                        <#if historyArray??>
+                        <#list historyArray as Array>
+
+							<div class="pr eventtwlbox eventbox" style="left:0px;">
+				            	<div class=" eventup"><p class="title">${Array.year?c}年</p></div>
+				            	
+				        	</div>
+
+							<#list Array.data as history>
+	                             <div class="pr eventtwlbox eventbox">
+	                                <div class="event_twl eventup">${history.content}</div>
+	                            </div>
+                            </#list>
+                        </#list>
+                        </#if>
+				    </div>
+				</div>
+			
+							<!-- <p class="title">2015年</p> -->
+				
+			
+			</div>
+		</div>
+	
+
+	</div>
+<#include "footer.html">
+</body>
+<script src="js/main_06_23.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.hot_list li .hot_gamebox').hotlist();
+	$('.lk_dt_news li').lkdtnew();
+	$('.company_listhover > li').company();
+	$('.event_bk > div').events();
+	$('.cptimes_bk > div').cptimes();
+	$('.games_con li').sild();
+})
+
+
+</script>
+</html>

@@ -1,0 +1,6 @@
+@charset "utf-8";
+*{ margin:0px; padding:0px;}
+body{ background:#CCC; font-size:12px;}
+ul li{ list-style-type:none;}
+li{ display:block; border-bottom:0px solid #eee; width:210px; height:30px; color:#FFF; line-height:30px; background:url(../images/left_menu_bg2.png); text-indent:30px}
+li a{ text-decoration:none; color:#FFF;}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>谷得游戏_新闻中心</title>
+    <meta name="description" content="谷得游戏新闻中心，公司新闻和游戏动态等最新资讯。" />
+    <meta name="keywords" content="谷得游戏、谷得、谷得官网、世界2、世界ol" />
+    <#include "header_common.html">
+        <script>
+            var string = document.URL;
+            var str = string.split("=")
+            var nameid = "";
+            if (nameid == 2) {
+                navtitle(1);
+            } else {
+                navtitle(0);
+            }
+        </script>
+</head>
+
+<body>
+    <#include "header.html">
+        <div class="banner7"></div>
+        <div class="Title">
+            <div class="title">
+                <ul>
+                    <li><a href="javascript:;"><span class="sp6"><img src="desktop/images/b_1_b.png" alt=""></span>公司新闻</a></li>
+                    <li><a href="javascript:;"><span class="sp7"><img src="desktop/images/b_2_b.png" alt=""></span>游戏动态</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="cont" style="width:1153px">
+
+            <#list newsCategory as cate>
+                <div class="tab" <#if cate_index !=0>style="display:none"</#if> >
+                <#assign newsLength=0/>
+                <#if newsArray??>
+                    <div class="list " >
+                        <#list newsArray as Array>
+                            <#if Array.categoryId==cate.id>
+                                <div class="item" >
+                                    <div class="cart_l"><img src="${Array.img}" style="width:360px; height:214px" alt=""></div>
+                                    <div class="cart_r">
+                                        <div class="p1"><a href="pc_newsDetail.html?id=${Array.id}">[<span class="span1">${cate.cateName}</span>] ${Array.title}</a></div>
+                                        <div class="p2">${Array.createTime?string('yyyy-MM-dd')}</div>
+                                        <div class="p3">${Array.description}</div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <#assign newsLength=newsLength+1/>
+                                <#if newsLength % 5==0>
+                    </div>
+                    <div class="list " style="display:none;">
+                        </#if>
+                        </#if>
+                        </#list>
+                    </div>
+                </#if>
+                <div class="page" data-length="${(newsLength/5+1)?int}" data-now="0">
+                    <ul>
+
+
+                    </ul>
+                </div>
+            </div>
+            </#list>
+        </div>
+        </div>
+        <#include "footer.html">
+
+</body>
+<script>
+    $(".title").on("click","li",function(){
+        navtitle($(this).index());
+        $(".cont .tab").hide().eq($(this).index()).show();
+    });
+    
+    function setPage(em){
+        var $this = {};
+        $this.$em=em ,
+            $this.$page = em.find(".page") ,
+            $this.op = {
+            now : $this.$page.attr("data-now") , 
+            len : $this.$page.attr("data-length")
+        }
+        $this.fn={
+            setBtn : function(){
+                var now = parseInt($this.$page.attr("data-now")),
+                    prev1 = now > 0? now-1:"",
+                    prev2 = now < $this.op.len-1? now+1:"",
+                
+                s1='<li class="prev" style="width:36px" data-i="'+prev1+'"><a href="javascript:;">&lt;</a></li>',
+                s2='<li style="background:#f9f9f9;width:36px"><a href="javascript:;">'+(now+1)+'</a></li>',
+                s3 = '<li class="prev" style="width:36px" data-i="'+prev2+'"><a href="javascript:;">&gt;</a></li>',
+                sprev1='',
+                sprev2='';
+                for(var i = 3 ; i>0 ; i-- ){
+                    if(now - i >= 0)
+                    {
+                        sprev1+='<li style="width:36px" data-i="'+(now-i)+'"><a href="javascript:;">'+((now-i)+1)+'</a></li>';
+                    }
+                } 
+                for(var i = 1 ; i<4 ; i++ ){
+                    if(now +i < $this.op.len)
+                    sprev2+='<li style="width:36px" data-i="'+(now+i)+'"><a href="javascript:;">'+((now+i)+1)+'</a></li>'
+                } 
+                $this.$page.find("ul").html(s1+sprev1+s2+sprev2+s3);
+            },
+            setList : function($btn){
+                if(!$btn.attr("data-i"))return;
+                $this.$em.find(".list").hide().eq($btn.attr("data-i")).show();
+                $this.$page.attr("data-now",$btn.attr("data-i"));
+                $this.fn.setBtn();
+                var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+                $body.animate({
+                    scrollTop: 400+'px'
+                }, 400);
+            }
+        }
+        $this.$page.on("click","li",function(){$this.fn.setList($(this))})
+        $this.fn.setBtn();
+    }
+    var tabs = [];
+    $(".tab").each(function(){
+        tabs[$(this).index()] = setPage($(this));
+    })
+</script>
+</html>

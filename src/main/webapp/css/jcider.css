@@ -1,0 +1,112 @@
+
+
+[data-icon]:before {
+  font-family: "jcider" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="jcider-"]:before,
+[class*=" jcider-"]:before {
+  font-family: "jcider" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.jcider-nav-left:before {
+  background: url(../images/lef.png);
+  /*content: "a";*/
+}
+.jcider-nav-right:before {width: 60px; height: 66px; border: 1px solid red;
+
+}
+
+/*Positioning and styling for navigation controls.*/
+/*Change at your will.*/
+
+/*Parent container for navigation arrows*/
+.jcider-nav {
+  position: absolute;
+  top: 50%;
+  left:0;
+
+  width: 100%;
+  color: white;
+  font-size: 30px;
+}
+/*Both right and left nav arrows*/
+.jcider-nav span {
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  font-size: 50px;
+  color: white;
+  transition: all 300ms;
+}
+
+.jcider-nav span.disabled {
+  pointer-events: none;
+  color: rgba(255,255,255,0.2);
+}
+
+ /*Left nav arrow*/
+.jcider-nav .jcider-nav-left {
+	position:absolute;
+	width: 34px; height: 66px;
+   background: url(../images/lef.png) no-repeat;
+   top: -30px;
+  left: 60px;
+}
+/*Right nav arrow*/
+.jcider-nav .jcider-nav-right {
+  position: absolute;
+  width: 34px; height: 66px;
+  background: url(../images/rig.png) no-repeat;
+  top: -30px;
+  right: 60px;
+}
+
+/*Pagination container can be styled by '.jcider-pagination'*/
+.jcider-pagination {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/*Styling for pagination points*/
+.jcider-pagination-point {
+  position: relative;
+  background: none;
+  border-radius: 50%;
+  margin: 8px;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.5);
+  transition: all 300ms;
+}
+ /*Styling for active pagination point*/
+.jcider-pagination-point.active {
+  background: white;
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.5);
+}

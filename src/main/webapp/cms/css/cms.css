@@ -1,0 +1,10 @@
+*{margin:0;padding:0;border:0}
+a{text-decoration: none}
+.checked table{border:0;width:100%;min-width:1000px;}
+.checked td:nth-child(1){width:150px;}
+.checked td:nth-child(2){text-align: left;}
+.checked td{border:0}
+[type='text'], select{width:200px;height:24px;}
+span{color: red}
+.minW{min-width:1024px;}
+.data_box table {width:100%;min-width:1024px;vertical-align: middle;}

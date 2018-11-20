@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8" />
+    <!-- 视口标签 -->
+    <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- 适应移动端end -->
+    <title>抽奖</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+<!--    <link rel="stylesheet" type="text/css" href="css/style.css" />-->
+    <link rel="stylesheet" type="text/css" href="css/index.css" />    
+<!--    <link rel="stylesheet/less" type="text/css" href="css/index.less" />    -->
+    <script>
+        (function (doc, win) {        
+            var docEl = doc.documentElement,
+                $body = doc.body,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                windw = "",
+                hengshuping = function () {
+                    var clientWidth = docEl.clientWidth,clientHeight=docEl.clientHeight;
+                    if(clientHeight<clientWidth){
+                        docEl.classList.add("landscape");
+                        docEl.style.fontSize = 20 * (clientHeight / 640) + 'px';
+    //                    docEl.style.fontSize = "10px";
+                    }else{
+                        docEl.classList.remove("landscape");
+                        docEl.style.fontSize = 20 * (clientWidth / 640) + 'px';
+                    }
+                    if (win.orientation == 180 || win.orientation == 0) {
+                        var clientWidth = docEl.clientWidth;
+                      if (!clientWidth) return;
+                        if(windw==clientWidth)
+                            return;
+                        else
+                            windw=clientWidth;
+                        docEl.classList.remove("landscape");
+                        docEl.style.fontSize = 20 * (clientWidth / 640) + 'px';
+                    }
+                    else if (win.orientation == 90 || win.orientation == -90) {
+                        docEl.classList.add("landscape");
+                        docEl.style.fontSize = 20 * (clientHeight / 640) + 'px';
+    //                    docEl.style.fontSize = "10px";
+                    }
+
+                    setTimeout(hengshuping,200);
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, hengshuping, false);
+            doc.addEventListener('DOMContentLoaded', hengshuping, false);
+        })(document, window)
+    </script>
+    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script> 
+    <script src="js/jquery.touchslider.min.js"></script>
+</head>
+<body>
+    <div id="header" class="back">
+        <a class="backBtn" href="javascript:window.history.back()" >&lt;</a>
+        <div class="title">热门游戏</div>
+        <div class="shareBtn"></div>
+    </div>
+    <div class="headerH"></div>
+    <div id="hotgame">
+    	
+        <ul>           
+            <#list gamelist as list>
+                <li>
+                <a href="queryActivityGamesById.do?id=${list.id}">
+                <img src="../upload/${list.icon}" alt="" class="logo">
+                <div class="name">${list.name}</div>
+                <div class="p1">3D动作 | 450M</div>
+                <div class="p1">${list.playcount}万+人在玩</div>
+                </a>
+                <a class="downloadBtn" href="${list.url}">下载</a>                
+               </li>
+               
+			</#list>
+        </ul>
+    </div>
+    
+    <div id="footer">
+       <div class="con">
+        <div class="tc">
+            <img src="images/goodLogo.png" alt="" class="logo">
+        </div>
+        <div class="tc">
+            GuangZhou Good Network Technology & OXON Game Studio Co.,Ltd <br>
+            © 2012 - 2015   Good Game Inc. All Rights Reserved <br><br>
+            健康游戏忠告：抵制不良游戏，拒绝盗版游戏 注意自我保护，谨防受骗上当; 适度游戏益脑，<br>
+            沉迷游戏伤身 合理安排时间，享受健康生活
+        </div>
+        </div>
+    </div>
+</body>
+</html>

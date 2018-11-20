@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>谷得游戏_新闻中心_${news.title}</title>
+<meta name="description" content="谷得游戏新闻中心，公司新闻和游戏动态等最新资讯。" />
+<meta name="keywords" content="谷得游戏、谷得、谷得官网、世界2、世界ol" />
+<#include "header_common.html">
+<script>
+
+	var string=document.referrer;
+		var str=string.split("=")
+		var nameid=${news.categoryId};
+		if(nameid==2){
+			navtitle(1);
+		}else{
+			navtitle(0);
+		}
+		console.log(nameid)
+</script>
+</head>
+<body>
+<#include "header.html">
+	<div class="banner7"></div>
+	<div class="Title">
+		<div class="title">
+			<ul>
+				<li><a href="pc_news?newsCategory=1"><span class="sp6"><img src="desktop/images/b_1_b.png" alt=""></span>新闻中心</a></li>
+				<li><a href="pc_news?newsCategory=2"><span class="sp7"><img src="desktop/images/b_2_b.png" alt=""></span>游戏动态</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="cont" style="width:1153px">
+		
+		<div class="tab">
+			<div class="cart_box1">
+				<div class="title">${news.title!}</div>
+				<div class="time">时间：${news.createTime!}</div>
+				<div class="text">${news.content!}</div>
+				<div class="share">
+					<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{"bdSize":16},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+					<div class="back"><a href="pc_news.html">返回列表</a></div>
+				</div>
+			</div>
+			
+
+		</div>
+
+		
+
+	</div>
+
+	</div>
+<#include "footer.html">
+</body>
+</html>
